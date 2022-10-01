@@ -1017,6 +1017,22 @@ type RequestCreateWallet struct {
 	Language string `json:"language"`
 }
 
+// GenerateFromKeys()
+type RequestGenerateFromKeys struct {
+	// Wallet file name.
+	Filename string `json:"filename"`
+	// (Optional) password to protect the wallet.
+	Password string `json:"password"`
+	// The wallet's primary address.
+	Address string `json:"address"`
+	// The wallet's private view key.
+	Viewkey string `json:"viewkey"`
+	// (Optional; omit to create a view-only wallet) The wallet's private spend key.
+	Spendkey string `json:"spendkey"`
+	// (Optional; defaults to 0) The block height to restore the wallet from.
+	RestoreHeight uint64 `json:"restore_height"`
+}
+
 // OpenWallet()
 type RequestOpenWallet struct {
 	// Wallet name stored in –wallet-dir.
